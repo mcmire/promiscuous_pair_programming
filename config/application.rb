@@ -52,5 +52,7 @@ module PPP
     
     # Configure Geokit
     config.geokit.geocoders.provider_order = [:google, :yahoo, :us]
+    
+    config.autoload_paths << Rails.root.join("vendor/require-profiler/lib")
   end
 end
