@@ -1,2 +1,8 @@
-default: --format pretty --strict --tags ~@wip features
-wip: --format pretty --tags @wip:3 --wip features
+<%
+def default_options_and(other_options)
+  "#{other_options} --format pretty --strict --guess --drb features"
+end 
+%>
+
+default: <%= default_options_and("--tags ~@wip") %>
+wip: <%= default_options_and("--tags @wip:3 --wip") %>
