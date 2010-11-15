@@ -172,6 +172,7 @@ GEM
       ffi (~> 0.6.3)
       json_pure
       rubyzip
+    spork (0.8.4)
     term-ansicolor (1.0.5)
     thin (1.2.7)
       daemons (>= 1.0.9)
@@ -210,5 +211,6 @@ DEPENDENCIES
   rails3-generators
   rspec-rails
   ruby-debug19
+  spork
   thin
   timecop
