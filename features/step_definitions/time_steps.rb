@@ -1,7 +1,6 @@
-# just add a gem dependency for Timecop or require it yourself
-
-Given 'the time is $time' do |time|
-  Timecop.freeze Time.parse(time)
+Given /^(?:today is|the time is) $time$/ do |time|
+  # Will this be a utc date or..?
+  Timecop.freeze Time.zone.parse(time)
 end
 
 When '$time pass' do |time|
@@ -10,5 +9,5 @@ When '$time pass' do |time|
 end
 
 When 'time stands still' do
-  Timecop.freeze Time.now
+  Timecop.freeze Time.zone.now
 end

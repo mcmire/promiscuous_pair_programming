@@ -35,7 +35,7 @@ describe PairingSessionsController do
         expected = mock_pairing_session
         @controller.stub(:current_user) { mock_user(:owned_pairing_sessions => stub(:upcoming => expected)) }
         get :index
-        assigns(:my_pairing_sessions).should eq(expected)
+        assigns(:my_pairing_sessions).should == expected
       end
       
       ### TODO: We should really stub these named scopes........
@@ -76,11 +76,11 @@ describe PairingSessionsController do
 
       it "@available_pairing_sessions should exclude sessions in the past" do
         user, user2 = Array.new(2) { Factory.create(:user) }
-        Timecop.freeze(2010, 1, 1)
-        in_the_past    = Factory.create(:pairing_session, :owner => user2, :start_at => Time.local(2010, 1, 1))
-        Timecop.freeze(2010, 1, 2)
-        in_the_present = Factory.create(:pairing_session, :owner => user2, :start_at => Time.local(2010, 1, 2))
-        in_the_future  = Factory.create(:pairing_session, :owner => user2, :start_at => Time.local(2010, 1, 3))
+        Timecop.freeze Time.utc(2010, 1, 1)
+        in_the_past    = Factory.create(:pairing_session, :owner => user2, :start_at => Time.utc(2010, 1, 1))
+        Timecop.freeze Time.utc(2010, 1, 2)
+        in_the_present = Factory.create(:pairing_session, :owner => user2, :start_at => Time.utc(2010, 1, 2))
+        in_the_future  = Factory.create(:pairing_session, :owner => user2, :start_at => Time.utc(2010, 1, 3))
         @controller.stub(:current_user) { user }
         get :index
         assigns(:available_pairing_sessions).should include(in_the_present)
