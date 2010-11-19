@@ -26,5 +26,5 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'timecop'
   gem 'jasmine'
-  gem 'spork'
+  gem 'spork', '~> 0.9.0.rc2'
 end

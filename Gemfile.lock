@@ -167,12 +167,12 @@ GEM
     selenium-client (1.2.18)
     selenium-rc (2.2.4)
       selenium-client (>= 1.2.18)
-    selenium-webdriver (0.0.29)
-      childprocess (>= 0.0.7)
+    selenium-webdriver (0.1.0)
+      childprocess (= 0.1.4)
       ffi (~> 0.6.3)
       json_pure
       rubyzip
-    spork (0.8.4)
+    spork (0.9.0.rc2)
     term-ansicolor (1.0.5)
     thin (1.2.7)
       daemons (>= 1.0.9)
@@ -211,6 +211,6 @@ DEPENDENCIES
   rails3-generators
   rspec-rails
   ruby-debug19
-  spork
+  spork (~> 0.9.0.rc2)
   thin
   timecop
