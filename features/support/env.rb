@@ -62,5 +62,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  # ...
+  # If you use the `cucumber` executable instead of the rake task, this won't happen
+  puts "Cleaning database..."
+  DatabaseCleaner.clean
 end
