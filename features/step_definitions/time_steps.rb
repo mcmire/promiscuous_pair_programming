@@ -1,5 +1,4 @@
-Given /^(?:today is|the time is) $time$/ do |time|
-  # Will this be a utc date or..?
+Given /^(?:today is|the time is) "?([^"]*)"?$/ do |time|
   Timecop.freeze Time.zone.parse(time)
 end
 

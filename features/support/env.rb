@@ -62,6 +62,5 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  puts "Cleaning database..."
-  DatabaseCleaner.clean
+  # ...
 end
