@@ -1,8 +1,9 @@
 <%
-def default_options_and(other_options)
-  "#{other_options} --format pretty --strict --guess --drb features"
-end 
+rerun = File.file?('rerun.txt') ? IO.read('rerun.txt').to_s.strip : ""
+common_opts = "--format pretty"
+std_opts = "#{common_opts} --strict --tags ~@wip"
+rerun_opts = (rerun.empty? ? "features" : rerun)
 %>
-
-default: <%= default_options_and("--tags ~@wip") %>
-wip: <%= default_options_and("--tags @wip:3 --wip") %>
+default: <%= std_opts %> features
+wip:     <%= common_opts %> --tags @wip:3 --wip features
+rerun:   <%= std_opts %> --format rerun --out rerun.txt <%= rerun_opts %>
