@@ -1,6 +1,6 @@
 <%
 rerun = File.file?('rerun.txt') ? IO.read('rerun.txt').to_s.strip : ""
-common_opts = "--format pretty"
+common_opts = "--format pretty --drb"
 std_opts = "#{common_opts} --strict --tags ~@wip"
 rerun_opts = (rerun.empty? ? "features" : rerun)
 %>
